@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Get authentic Islamic answers from Sheikh Falah, based on Qur’an and Sunnah.">
+  <title>AskSunnah - Get Answers from Sheikh Falah</title>
+  <style>
+    :root {
+      --primary-color: #1f6f3e;
+      --secondary-color: #2e8b57;
+      --background: #f7f7f7;
+      --card-bg: #ffffff;
+      --accent-bg: #f0f4fa;
+      --text-color: #2c3e50;
+      --font-family: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: #fff;
+      padding: 2.5rem 1.25rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--card-bg);
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    h2, h3 {
+      color: var(--primary-color);
+    }
+
+    a.btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    a.btn:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .question-item {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-left: 5px solid var(--primary-color);
+      background-color: var(--accent-bg);
+      border-radius: 5px;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: var(--card-bg);
+      margin: 10% auto;
+      padding: 2rem;
+      border: 1px solid #888;
+      width: 90%;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    }
+
+    .modal-content h3 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-family: var(--font-family);
+    }
+
+    .modal-content button {
+      padding: 0.75rem 1.25rem;
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .modal-content button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      main {
+        margin: 1rem;
+        padding: 1rem;
+      }
+
+      .question-item {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>AskSunnah.com</h1>
+    <p>Get authentic answers from Sheikh Falah — grounded in Qur’an and Sunnah (Beta-Version)</p>
+  </header>
+
+  <main aria-label="Main Content Area">
+    <section aria-labelledby="ask-question">
+      <h2 id="ask-question">Ask a Question</h2>
+      <p>Have a question about Islam? Submit it and get a response directly from Shaykh Falah, based on one clear opinion from trusted scholars.</p>
+      <a href="#" class="btn" id="openModalBtn" aria-label="Submit your question">Submit Your Question</a>
+    </section>
+
+    <section aria-labelledby="recent-answers">
+      <h3 id="recent-answers">Recent Answers</h3>
+    
+      <article class="question-item" aria-label="Recent answer placeholder">
+        <strong>Q:</strong> <br>
+        <strong>A:</strong>
+      </article>
+    
+      <article class="question-item" aria-label="Recent answer placeholder">
+        <strong>Q:</strong> <br>
+        <strong>A:</strong>
+      </article>
+    </section>
+  </main>
+
+  <!-- Modal Structure -->
+  <div id="questionModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModalBtn">&times;</span>
+      <h3>Submit Your Question</h3>
+      <form id="questionForm" action="https://formspree.io/f/meoayqbd" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="question" rows="5" placeholder="Your Question" required></textarea>
+        <button type="submit">Send Question</button>
+      </form>
+      
+      <!-- Thank you message -->
+      <div id="thankYouMessage" style="display:none; margin-top: 1rem; color: green;">
+        ✅ Your question has been submitted. JazakAllah Khair!
+      </div>
+      
+  </div>
+
+  <script>
+    
+  const modal = document.getElementById("questionModal");
+  const openBtn = document.getElementById("openModalBtn");
+  const closeBtn = document.getElementById("closeModalBtn");
+  const form = document.getElementById("questionForm");
+  const thankYou = document.getElementById("thankYouMessage");
+
+  openBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+    modal.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+    form.reset();
+    thankYou.style.display = "none";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+      form.reset();
+      thankYou.style.display = "none";
+    }
+  });
+
+  form.addEventListener("submit", function(e) {
+    e.preventDefault();
+    const formData = new FormData(form);
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json"
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        form.style.display = "none";
+        thankYou.style.display = "block";
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    })
+    .catch(() => alert("There was a problem submitting your question."));
+  });
+</script>
+
+  </script>
+</body>
+</html>
