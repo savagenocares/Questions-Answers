@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Get authentic Islamic answers from Dr. Sheikh Falah Kurkully, based on Qur’an and Sunnah.">
   <title>AskSunnah - Get Answers from Dr. Sheikh Falah Kurkully</title>
@@ -182,9 +181,6 @@
 </head>
 <body>
 
-  <!-- rebuild -->
-
-
   <header>
     <h1>AskSunnah.com</h1>
     <p>Get authentic answers from Dr. Sheikh Falah Kurkully — grounded in Qur’an and Sunnah (Beta-Version)</p>
@@ -202,6 +198,12 @@
       <h2 id="ask-question">Ask a Question</h2>
       <p>Have a question about Islam? Submit it and get a response directly from Dr. Sheikh Falah Kurkully, based on one clear opinion from trusted scholars.</p>
       <a href="#" class="btn" id="openModalBtn" aria-label="Submit your question">Submit Your Question (أرسل سؤالك)</a>
+      <a href="/ar/" style="margin-left: 1rem; text-decoration: underline; color: inherit;">
+        العربية
+      </a>
+      
+      
+
     </section>
 
     <section aria-labelledby="recent-answers">
@@ -242,6 +244,9 @@
         ✅ Your question has been submitted. JazakAllah Khair!
       </div>
       
+
+      
+
   </div>
 
   <script>
@@ -291,12 +296,23 @@
     })
     .catch(() => alert("There was a problem submitting your question."));
   });
+  document.getElementById("openArabicModalBtn").addEventListener("click", function(e) {
+  e.preventDefault();
+  window.location.href = "/ar";
+});
+
+  
 </script>
 
 
-    <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
+
+<footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
   Share this website with others so the benefit may spread — and you may earn ongoing reward,<em> In sha Allah <br><br>انشر هذا الموقع مع الآخرين لينتشر النفع — ولك أجر مستمر
     <em>إن شاء الله</em></em>
 </footer>
+
+
+  
 </body>
+
 </html>
