@@ -140,6 +140,17 @@ mark {
   border-radius: 4px;
 }
 
+  .button-container {
+    display: flex;
+    gap: 10px; /* spacing between buttons */
+  }
+
+  .theme-button {
+    padding: 10px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
 
 </style>
 
@@ -278,7 +289,15 @@ body.dark .theme-button:hover {
 
   <h1>Imam Nawwawi 40 Hadith <br><br>الأربعين النووي </h1> <br>
 
+  <div class="button-container">
   <button id="toggleTheme" class="theme-button">🌗 Dark Mode</button>
+  <button id="introButton" class="theme-button" onclick="window.location.href='Introduction.html'">📘 Intro/مقدمة</button>
+
+</div>
+
+
+
+  
 
 <br><br>
   <div class="search-bar">
