@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qawaid Arba' - Flipbook</title>
+  <style>
+    :root {
+      --primary-color: #1f6f3e;
+      --secondary-color: #2e8b57;
+      --background: #f7f7f7;
+      --card-bg: #ffffff;
+      --accent-bg: #f0f4fa;
+      --text-color: #2c3e50;
+      --font-family: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background);
+      color: var(--text-color);
+      text-align: center;
+      padding: 20px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem 1rem;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    img {
+      width: 600px;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      margin: 0 10px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--primary-color);
+      color: white;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Qawaid Al-Arba'</h1>
+  </header>
+
+  <img id="screenshot" src="assets/q_a_1.png" alt="Screenshot">
+  
+  <div class="controls">
+    <button onclick="prevImage()">Previous</button>
+    <button onclick="nextImage()">Next</button>
+  </div>
+
+  <script>
+    const images = ["assets/q_a_1.png", "assets/q_a_2.png"];
+    let currentIndex = 0;
+    const img = document.getElementById('screenshot');
+
+    function showImage(index) {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = images[index];
+      }, 250);
+      setTimeout(() => {
+        img.style.opacity = 1;
+      }, 300);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+  </script>
+
+</body>
+</html>
