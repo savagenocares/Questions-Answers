@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="/library/Welcome_to_library/Qawaid_Arba_Flipbook/">
 
-
   <title>Qawaid Arba' - Flipbook</title>
   <style>
     :root {
@@ -29,7 +28,7 @@
       background-color: var(--background);
       color: var(--text-color);
       text-align: center;
-      padding: 20px;
+      padding: 10px;
     }
 
     header {
@@ -44,8 +43,15 @@
       font-size: 2rem;
     }
 
+    .flipbook-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
     img {
-      width: 600px;
+      max-width: 100%;
       height: auto;
       opacity: 1;
       transition: opacity 0.5s ease-in-out;
@@ -54,23 +60,44 @@
     }
 
     .controls {
-      margin-top: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
     }
 
     button {
-      padding: 10px 20px;
+      padding: 12px 18px;
       font-size: 16px;
-      margin: 0 10px;
       cursor: pointer;
       border: none;
       border-radius: 6px;
       background-color: var(--primary-color);
       color: white;
       transition: background-color 0.3s ease;
+      width: 120px;
     }
 
     button:hover {
       background-color: var(--secondary-color);
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      button {
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      button {
+        width: 90px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
@@ -80,15 +107,29 @@
     <h1>Qawaid Al-Arba'</h1>
   </header>
 
-  <img id="screenshot" src="./assets/qa1.PNG" alt="Screenshot">
-  
-  <div class="controls">
-    <button onclick="prevImage()">Previous</button>
-    <button onclick="nextImage()">Next</button>
+  <div class="flipbook-container">
+    <img id="screenshot" src="./assets/qa1.PNG" alt="Screenshot">
+    
+    <div class="controls">
+      <button onclick="prevImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
   </div>
 
   <script>
-    const images = ["./assets/qa1.PNG", "./assets/qa2.PNG" , "./assets/qa3.PNG" , "./assets/qa4.PNG" , "./assets/qa5.PNG" , "./assets/qa6.PNG" , "./assets/qa7.PNG" , "./assets/qa8.PNG" , "./assets/qa9.PNG" , "./assets/qa10.PNG" ];
+    const images = [
+      "./assets/qa1.PNG", 
+      "./assets/qa2.PNG", 
+      "./assets/qa3.PNG", 
+      "./assets/qa4.PNG", 
+      "./assets/qa5.PNG", 
+      "./assets/qa6.PNG", 
+      "./assets/qa7.PNG", 
+      "./assets/qa8.PNG", 
+      "./assets/qa9.PNG", 
+      "./assets/qa10.PNG"
+    ];
+
     let currentIndex = 0;
     const img = document.getElementById('screenshot');
 
@@ -111,10 +152,6 @@
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       showImage(currentIndex);
     }
-
-    console.log("Base URL:", document.baseURI);
-console.log("Image path attempting to load:", images[currentIndex]);
-
   </script>
 
 </body>
