@@ -110,6 +110,10 @@
       currentIndex = (currentIndex - 1 + images.length) % images.length;
       showImage(currentIndex);
     }
+
+    console.log("Base URL:", document.baseURI);
+console.log("Image path attempting to load:", images[currentIndex]);
+
   </script>
 
 </body>
