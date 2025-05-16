@@ -67,16 +67,16 @@
     }
 
     button {
-      padding: 12px 18px;
-      font-size: 16px;
+      padding: 10px 16px;
+      font-size: 15px;
       cursor: pointer;
       border: none;
       border-radius: 8px;
       background-color: var(--primary-color);
       color: white;
       transition: background-color 0.3s ease;
-      width: 120px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      width: 140px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     }
 
     button:hover {
@@ -84,17 +84,60 @@
     }
 
     /* New Styling for Dropdown */
-    select {
-      padding: 12px 18px;
-      font-size: 16px;
-      border-radius: 8px;
-      background-color: var(--card-bg);
-      color: var(--text-color);
-      border: 1px solid var(--primary-color);
-      cursor: pointer;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    }
+   select {
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border: 1px solid var(--primary-color);
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  height: 48px;
+
+  /* Remove default arrow and add custom */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  /* Custom Arrow */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath fill='%231f6f3e' d='M7 7l3 3 3-3z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  background-size: 12px 12px; /* Adjust arrow size */
+  padding-right: 35px; /* Space for the arrow */
+}
+
+/* Enable Scrolling on Mobile */
+@media (max-width: 768px) {
+  select {
+    width: 90%;
+    height: 45px;
+    font-size: 14px;
+  }
+
+  select:focus {
+    height: auto;
+    max-height: 200px; /* Limit the height to avoid overflow */
+    overflow-y: auto;  /* Enable scrolling */
+  }
+}
+
+@media (max-width: 480px) {
+  select {
+    width: 100%;
+    height: 42px;
+    font-size: 14px;
+  }
+
+  select:focus {
+    height: auto;
+    max-height: 200px;
+    overflow-y: auto;
+  }
+}
+
 
     select:hover {
       border-color: var(--secondary-color);
@@ -111,7 +154,7 @@
 <body>
 
   <header>
-    <h1><h1>Qawaid Al-Arba' <br >(القواعد الأربع) </h1> </h1>
+    <h1>Qawaid Al-Arba' (English + Arabic)</h1>
   </header>
 
   <div class="flipbook-container">
@@ -125,15 +168,16 @@
   </div>
 
   <script>
-    const images = [
-      "./assets/qae1.PNG", 
-      "./assets/qae2.PNG", 
-      "./assets/qae3.PNG", 
-      "./assets/qae4.PNG", 
-      "./assets/qae5.PNG", 
-      "./assets/qae6.PNG", 
-      "./assets/qae7.PNG", 
-      "./assets/qae8.PNG"
+    // Page Data with Titles
+    const pages = [
+      { src: "./assets/qae1.PNG", label: "Page 1 - Introduction" },
+      { src: "./assets/qae2.PNG", label: "Page 2 - First & Second Principle" },
+      { src: "./assets/qae3.PNG", label: "Page 3" },
+      { src: "./assets/qae4.PNG", label: "Page 4" },
+      { src: "./assets/qae5.PNG", label: "Page 5 - Third Principle" },
+      { src: "./assets/qae6.PNG", label: "Page 6" },
+      { src: "./assets/qae7.PNG", label: "Page 7 - Fourth Principle" },
+      { src: "./assets/qae8.PNG", label: "Page 8" }
     ];
 
     let currentIndex = 0;
@@ -141,55 +185,38 @@
     const pageSelector = document.getElementById('pageSelector');
 
     // Populate the page selector dynamically
-    images.forEach((_, index) => {
+    pages.forEach((page, index) => {
       const option = document.createElement('option');
       option.value = index;
-      option.text = `Page (صفحة) ${index + 1}`;
+      option.text = page.label;
       pageSelector.appendChild(option);
     });
-
-    // Function to jump to selected page
-    function goToPage(event) {
-      currentIndex = parseInt(event.target.value, 10);
-      showImage(currentIndex);
-    }
 
     function showImage(index) {
       img.style.opacity = 0;
       setTimeout(() => {
-        img.src = images[index];
+        img.src = pages[index].src;
       }, 250);
       setTimeout(() => {
         img.style.opacity = 1;
       }, 300);
-
-      // Update the selector dropdown to match the page
       pageSelector.value = index;
     }
 
     function nextImage() {
-      currentIndex = (currentIndex + 1) % images.length;
+      currentIndex = (currentIndex + 1) % pages.length;
       showImage(currentIndex);
     }
 
     function prevImage() {
-      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      currentIndex = (currentIndex - 1 + pages.length) % pages.length;
       showImage(currentIndex);
     }
 
-    // 🚀 **Keyboard Navigation**
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowRight") nextImage();
-      if (event.key === "ArrowLeft") prevImage();
-      if (event.key === "Home") {
-        currentIndex = 0;
-        showImage(currentIndex);
-      }
-      if (event.key === "End") {
-        currentIndex = images.length - 1;
-        showImage(currentIndex);
-      }
-    });
+    function goToPage(event) {
+      currentIndex = parseInt(event.target.value, 10);
+      showImage(currentIndex);
+    }
   </script>
 
 </body>
