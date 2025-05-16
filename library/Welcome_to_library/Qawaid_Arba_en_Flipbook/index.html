@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/library/Welcome_to_library/Qawaid_Arba_en_Flipbook/">
+
+  <title>Qawaid Arba' Eng - Flipbook</title>
+  <style>
+    :root {
+      --primary-color: #1f6f3e;
+      --secondary-color: #2e8b57;
+      --background: #f7f7f7;
+      --card-bg: #ffffff;
+      --accent-bg: #f0f4fa;
+      --text-color: #2c3e50;
+      --font-family: 'Segoe UI', sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--background);
+      color: var(--text-color);
+      text-align: center;
+      padding: 10px;
+    }
+
+    header {
+      background-color: var(--primary-color);
+      color: white;
+      padding: 1.5rem 1rem;
+      margin-bottom: 20px;
+      border-radius: 8px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    .flipbook-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      opacity: 1;
+      transition: opacity 0.5s ease-in-out;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 12px 18px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: var(--primary-color);
+      color: white;
+      transition: background-color 0.3s ease;
+      width: 120px;
+    }
+
+    button:hover {
+      background-color: var(--secondary-color);
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      button {
+        width: 100px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      button {
+        width: 90px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Qawaid Al-Arba' (English + Arabic) </h1>
+  </header>
+
+  <div class="flipbook-container">
+    <img id="screenshot" src="./assets/qae1.PNG" alt="Screenshot">
+    
+    <div class="controls">
+      <button onclick="prevImage()">Previous</button>
+      <button onclick="nextImage()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    const images = [
+      "./assets/qae1.PNG", 
+      "./assets/qae2.PNG", 
+      "./assets/qae3.PNG", 
+      "./assets/qae4.PNG", 
+      "./assets/qae5.PNG", 
+      "./assets/qae6.PNG", 
+      "./assets/qae7.PNG", 
+      "./assets/qae8.PNG", 
+      
+    ];
+
+    let currentIndex = 0;
+    const img = document.getElementById('screenshot');
+
+    function showImage(index) {
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = images[index];
+      }, 250);
+      setTimeout(() => {
+        img.style.opacity = 1;
+      }, 300);
+    }
+
+    function nextImage() {
+      currentIndex = (currentIndex + 1) % images.length;
+      showImage(currentIndex);
+    }
+
+    function prevImage() {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      showImage(currentIndex);
+    }
+  </script>
+
+</body>
+</html>
