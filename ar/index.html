@@ -145,6 +145,29 @@
       cursor: pointer;
     }
 
+    .pagination {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .pagination a {
+      padding: 0.5rem 1rem;
+      background-color: #eee;
+      border-radius: 6px;
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: normal;
+      cursor: pointer;
+    }
+
+    .pagination a.active {
+      background-color: #ccc;
+      font-weight: bold;
+    }
+
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.8rem;
@@ -176,8 +199,6 @@
       📚 مكتبة
     </a>
   </div>
-  
-  
 
   <main aria-label="الصفحة الرئيسية">
     <section aria-labelledby="ask-question">
@@ -189,105 +210,99 @@
       </a>
     </section>
 
+    <!-- Search Bar -->
+    <div style="margin: 2rem 0;">
+      <input
+        type="text"
+        id="fatwaSearch"
+        placeholder="ابحث في الفتاوى..."
+        style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; text-align: right;"
+        aria-label="ابحث في الفتاوى"
+      />
+    </div>
+
     <section aria-labelledby="recent-answers">
       <h3 id="recent-answers">أحدث الأسئلة المجابة</h3>
-    
+
       <article class="question-item">
         <a href="answers_ar/is_zina_halal_ar.html">
           <strong>س1:</strong> هل الزنا حلال؟
         </a>
       </article>
-
       <article class="question-item">
         <a href="answers_ar/Ruling_on_receiving_gift_from_banks_ar.html">
           <strong>س2:</strong> استلام هدية عند فتح حساب بنكي من البنوك؟
         </a>
       </article>
-
       <article class="question-item">
         <a href="answers_ar/Singing_without_musical_instruments_ar.html">
-          <strong>س3:</strong> الغناء بدون أدوات موسيقية؟   
+          <strong>س3:</strong> الغناء بدون أدوات موسيقية؟
         </a>
       </article>
-
       <article class="question-item">
         <a href="answers_ar/Spaying_cat_ar.html">
-          <strong>س4:</strong> هل يجوز لي تعقيم قطتي؟   
+          <strong>س4:</strong> هل يجوز لي تعقيم قطتي؟
         </a>
       </article>
-
       <article class="question-item">
         <a href="answers_ar/working_in_tax_collection_ar.html">
-          <strong>س5:</strong> العمل في هيئات جمع الضرائب؟  
+          <strong>س5:</strong> العمل في هيئات جمع الضرائب؟
         </a>
       </article>
-      
       <article class="question-item">
         <a href="answers_ar/ruling_on_going_against_government_ar.html">
-          <strong>س6:</strong> ما هو حكم الخروج على الحاكم؟  
+          <strong>س6:</strong> ما هو حكم الخروج على الحاكم؟
         </a>
       </article>
-      
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/money_refunded_ar.html">
-          <strong>س7:</strong> حكم الاحتفاظ بالمال المسترد من البنك؟  
+          <strong>س7:</strong> حكم الاحتفاظ بالمال المسترد من البنك؟
         </a>
       </article>
-
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/advise_family_ar.html">
-          <strong>س8:</strong> كيف تنصح العائلة عند ارتكاب المعاصي؟ 
+          <strong>س8:</strong> كيف تنصح العائلة عند ارتكاب المعاصي؟
         </a>
       </article>
-
       <article class="question-item">
         <a href="answers_ar/combine_prayers_ar.html">
-          <strong>س9:</strong> حكم جمع صلاتين بدون عذر؟ 
+          <strong>س9:</strong> حكم جمع صلاتين بدون عذر؟
         </a>
       </article>
-
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/dental_veeners_ar.html">
           <strong>س10:</strong> هل قشور الأسنان (الفينير) مباحة في الشريعة الإسلامية؟
         </a>
       </article>
-
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/cursing_sahaba_ar.html">
           <strong>س11:</strong>  حكم من يسب الصحابة رضي الله عنهم؟
         </a>
       </article>
-
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/Listening_to_clean_songs_ar.html">
           <strong>س12:</strong> ما حكم الاستماع إلى الأغاني النظيفة ذات الكلمات الطيبة والموسيقى؟
         </a>
       </article>
-
-<article class="question-item">
+      <article class="question-item">
         <a href="answers_ar/Can_i_accept_free_hajj_ar.html">
           <strong>س13:</strong> حكم الحج الممول من متبرع؟
         </a>
-      
+      </article>
 
-
-
-
-      
-
+      <!-- Pagination block -->
+      <div class="pagination" aria-label="تصفح الصفحات"></div>
     </section>
-     
   </main>
 
-  <!-- Modal -->
-  <div id="questionModal" class="modal">
+  <div id="questionModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
-      <span class="close" id="closeModalBtn">&times;</span>
-      <h3>أرسل سؤالك</h3>
+      <span class="close" id="closeModalBtn" role="button" aria-label="إغلاق">&times;</span>
+      <h3 id="modalTitle">أرسل سؤالك</h3>
       <form id="questionForm" action="https://formspree.io/f/meoayqbd" method="POST">
-        <input type="text" name="name" placeholder="اسمك" required />
-        <input type="email" name="email" placeholder="بريدك الإلكتروني" required />
-        <textarea name="question" rows="5" placeholder="سؤالك" required></textarea>
+        <input type="text" name="name" placeholder="اسمك" required aria-required="true" />
+        <input type="email" name="email" placeholder="بريدك الإلكتروني" required aria-required="true" />
+        <textarea name="question" rows="5" placeholder="سؤالك" required aria-required="true"></textarea>
         <button type="submit">إرسال السؤال</button>
       </form>
       <div id="thankYouMessage" style="display:none; margin-top: 1rem; color: green;">
@@ -298,6 +313,7 @@
   </div>
 
   <script>
+    // Modal open/close logic
     const modal = document.getElementById("questionModal");
     const openBtn = document.getElementById("openModalBtn");
     const closeBtn = document.getElementById("closeModalBtn");
@@ -345,7 +361,80 @@
       })
       .catch(() => alert("هناك مشكلة في الإرسال."));
     });
+
+    // Arabic Fatwa search logic
+    document.getElementById('fatwaSearch').addEventListener('input', function () {
+      const query = this.value.toLowerCase();
+      const fatwas = document.querySelectorAll('.question-item');
+
+      fatwas.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        item.style.display = text.includes(query) ? 'block' : 'none';
+      });
+
+      // Reset to first page after search
+      showPage(1);
+      updatePagination();
+    });
+
+    // Pagination logic
+    const fatwas = Array.from(document.querySelectorAll('.question-item'));
+    const paginationContainer = document.querySelector('.pagination');
+    const itemsPerPage = 10;
+
+    function showPage(page) {
+      const filteredFatwas = fatwas.filter(fatwa => fatwa.style.display !== 'none');
+      const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+      if(page < 1) page = 1;
+      if(page > totalPages) page = totalPages;
+
+      filteredFatwas.forEach((item, index) => {
+        item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
+      });
+
+      // Highlight active page
+      const pageLinks = paginationContainer.querySelectorAll('a');
+      pageLinks.forEach(link => {
+        link.classList.remove('active');
+      });
+      const activeLink = paginationContainer.querySelector(`a[data-page="${page}"]`);
+      if (activeLink) {
+        activeLink.classList.add('active');
+      }
+    }
+
+    function updatePagination() {
+      const filteredFatwas = fatwas.filter(fatwa => fatwa.style.display !== 'none');
+      const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+
+      paginationContainer.innerHTML = '';
+      for(let i = 1; i <= totalPages; i++) {
+        const a = document.createElement('a');
+        a.href = "#";
+        a.textContent = i;
+        a.setAttribute('data-page', i);
+        a.addEventListener('click', function(e) {
+          e.preventDefault();
+          showPage(i);
+        });
+        paginationContainer.appendChild(a);
+      }
+
+      // Show first page by default or after update
+      showPage(1);
+    }
+
+    // Initialize pagination on DOM load
+    document.addEventListener("DOMContentLoaded", function() {
+      updatePagination();
+    });
+
   </script>
+
+  <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
+    <br>انشر هذا الموقع مع الآخرين لينتشر النفع — ولك أجر مستمر
+    <em>إن شاء الله</em>
+  </footer>
 
 </body>
 </html>

@@ -195,7 +195,6 @@
       <a href="/ar/" style="margin-left: 1rem; text-decoration: underline; color: inherit;">العربية</a>
     </section>
 
-    <!-- Search bar inserted here -->
     <div style="margin: 2rem 0;">
       <input type="text" id="fatwaSearch" placeholder="Search fatwas..." 
         style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
@@ -204,27 +203,23 @@
     <section aria-labelledby="recent-answers">
       <h3 id="recent-answers">Recent Answers</h3>
 
-      <!-- Existing question-items remain unchanged -->
       <!-- All question-items listed here -->
+      <div id="fatwaList">
+        <article class="question-item"><a href="answers/is_zinah_halal.html"><strong>Q1:</strong> Is Zinah (fornication) Halal?</a></article>
+        <article class="question-item"><a href="answers/Ruling_on_receiving_gift_from_banks.html"><strong>Q2:</strong> Receiving an opening bank account gift from banks?</a></article>
+        <article class="question-item"><a href="answers/Singing_without_musical_instruments.html"><strong>Q3:</strong> Singing without musical instruments?</a></article>
+        <article class="question-item"><a href="answers/Spaying_cat.html"><strong>Q4:</strong> Can I spay/neuter my cat?</a></article>
+        <article class="question-item"><a href="answers/working_in_tax_collection.html"><strong>Q5:</strong> Working in tax collection authorities?</a></article>
+        <article class="question-item"><a href="answers/ruling_on_going_against_government.html"><strong>Q6:</strong> Ruling on going against government?</a></article>
+        <article class="question-item"><a href="answers/money_refunded.html"><strong>Q7:</strong> Ruling on keeping refunded money from the bank?</a></article>
+        <article class="question-item"><a href="answers/advise_family.html"><strong>Q8:</strong> How to advise family on sinning?</a></article>
+        <article class="question-item"><a href="answers/combine_prayers.html"><strong>Q9:</strong> Ruling on combining prayers without a reason?</a></article>
+        <article class="question-item"><a href="answers/dental_veeners.html"><strong>Q10:</strong> Are dental veneers permissible in islam?</a></article>
+        <article class="question-item"><a href="answers/cursing_sahaba.html"><strong>Q11:</strong> Ruling on the one who curses Sahaba?</a></article>
+        <!-- Add more question-items here if needed -->
+      </div>
 
-      <!-- EXAMPLE -->
-      <article class="question-item"><a href="answers/is_zinah_halal.html"><strong>Q1:</strong> Is Zinah (fornication) Halal?</a></article>
-      <article class="question-item"><a href="answers/Ruling_on_receiving_gift_from_banks.html"><strong>Q2:</strong> Receiving an opening bank account gift from banks?</a></article>
-      <article class="question-item"><a href="answers/Singing_without_musical_instruments.html"><strong>Q3:</strong> Singing without musical instruments?</a></article>
-      <article class="question-item"><a href="answers/Spaying_cat.html"><strong>Q4:</strong> Can I spay/neuter my cat?</a></article>
-      <article class="question-item"><a href="answers/working_in_tax_collection.html"><strong>Q5:</strong> Working in tax collection authorities?</a></article>
-      <article class="question-item"><a href="answers/ruling_on_going_against_government.html"><strong>Q6:</strong> Ruling on going against government?</a></article>
-      <article class="question-item"><a href="answers/money_refunded.html"><strong>Q7:</strong> Ruling on keeping refunded money from the bank?</a></article>
-      <article class="question-item"><a href="answers/advise_family.html"><strong>Q8:</strong> How to advise family on sinning?</a></article>
-      <article class="question-item"><a href="answers/combine_prayers.html"><strong>Q9:</strong> Ruling on combining prayers without a reason?</a></article>
-      <article class="question-item"><a href="answers/dental_veeners.html"><strong>Q10:</strong> Are dental veneers permissible in islam?</a></article>
-      <article class="question-item"><a href="answers/cursing_sahaba.html"><strong>Q11:</strong> Ruling on the one who curses Sahaba?</a></article>
-
-
-      
-  
-    
-      <!-- You can add more links below the same way -->
+      <div class="pagination" style="display: flex; justify-content: center; margin-top: 2rem; gap: 0.5rem;"></div>
     </section>
   </main>
 
@@ -286,22 +281,82 @@
       })
       .catch(() => alert("There was a problem submitting your question."));
     });
+  </script>
 
-    // Fatwa search logic
-    document.getElementById('fatwaSearch').addEventListener('input', function () {
-      const query = this.value.toLowerCase();
-      const fatwas = document.querySelectorAll('.question-item');
-      fatwas.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? 'block' : 'none';
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const fatwaList = document.getElementById('fatwaList');
+      const paginationContainer = document.querySelector('.pagination');
+      const fatwas = Array.from(fatwaList.querySelectorAll('.question-item'));
+      const itemsPerPage = 5; // Adjust items per page here
+      let currentPage = 1;
+      let filteredFatwas = fatwas;
+
+      function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        // Hide all first
+        fatwas.forEach(item => item.style.display = 'none');
+        // Show filtered items for this page
+        filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
+
+        renderPagination();
+      }
+
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+        if (totalPages <= 1) return; // no need to paginate if 1 or 0 pages
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement('a');
+          pageLink.href = "#";
+          pageLink.textContent = i;
+          pageLink.style.padding = '0.5rem 1rem';
+          pageLink.style.backgroundColor = i === currentPage ? '#ccc' : '#eee';
+          pageLink.style.borderRadius = '6px';
+          pageLink.style.textDecoration = 'none';
+          pageLink.style.margin = '0 0.25rem';
+          pageLink.style.fontWeight = i === currentPage ? 'bold' : 'normal';
+
+          pageLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+            // Scroll to top of list on page change
+            fatwaList.scrollIntoView({ behavior: 'smooth' });
+          });
+
+          paginationContainer.appendChild(pageLink);
+        }
+      }
+
+      function filterFatwas(query) {
+        query = query.trim().toLowerCase();
+        if (!query) {
+          filteredFatwas = fatwas;
+        } else {
+          filteredFatwas = fatwas.filter(item => {
+            return item.textContent.toLowerCase().includes(query);
+          });
+        }
+        showPage(1); // Reset to page 1 after filtering
+      }
+
+      // Initial display
+      showPage(1);
+
+      // Connect search input
+      const searchInput = document.getElementById('fatwaSearch');
+      searchInput.addEventListener('input', function () {
+        filterFatwas(this.value);
       });
     });
   </script>
 
   <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
-    Share this website with others so the benefit may spread — and you may earn ongoing reward,<em> In sha Allah <br><br>انشر هذا الموقع مع الآخرين لينتشر النفع — ولك أجر مستمر
-    <em>إن شاء الله</em></em>
+    Share this website with others so the benefit may spread — and you may earn ongoing reward,<em> In sha Allah <br></em>
   </footer>
-
 </body>
 </html>
