@@ -145,29 +145,6 @@
       cursor: pointer;
     }
 
-    .pagination {
-      display: flex;
-      justify-content: center;
-      margin-top: 2rem;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .pagination a {
-      padding: 0.5rem 1rem;
-      background-color: #eee;
-      border-radius: 6px;
-      text-decoration: none;
-      color: var(--text-color);
-      font-weight: normal;
-      cursor: pointer;
-    }
-
-    .pagination a.active {
-      background-color: #ccc;
-      font-weight: bold;
-    }
-
     @media (max-width: 600px) {
       header h1 {
         font-size: 1.8rem;
@@ -224,77 +201,29 @@
     <section aria-labelledby="recent-answers">
       <h3 id="recent-answers">أحدث الأسئلة المجابة</h3>
 
-      <article class="question-item">
-        <a href="answers_ar/is_zina_halal_ar.html">
-          <strong>س1:</strong> هل الزنا حلال؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/Ruling_on_receiving_gift_from_banks_ar.html">
-          <strong>س2:</strong> استلام هدية عند فتح حساب بنكي من البنوك؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/Singing_without_musical_instruments_ar.html">
-          <strong>س3:</strong> الغناء بدون أدوات موسيقية؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/Spaying_cat_ar.html">
-          <strong>س4:</strong> هل يجوز لي تعقيم قطتي؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/working_in_tax_collection_ar.html">
-          <strong>س5:</strong> العمل في هيئات جمع الضرائب؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/ruling_on_going_against_government_ar.html">
-          <strong>س6:</strong> ما هو حكم الخروج على الحاكم؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/money_refunded_ar.html">
-          <strong>س7:</strong> حكم الاحتفاظ بالمال المسترد من البنك؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/advise_family_ar.html">
-          <strong>س8:</strong> كيف تنصح العائلة عند ارتكاب المعاصي؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/combine_prayers_ar.html">
-          <strong>س9:</strong> حكم جمع صلاتين بدون عذر؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/dental_veeners_ar.html">
-          <strong>س10:</strong> هل قشور الأسنان (الفينير) مباحة في الشريعة الإسلامية؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/cursing_sahaba_ar.html">
-          <strong>س11:</strong>  حكم من يسب الصحابة رضي الله عنهم؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/Listening_to_clean_songs_ar.html">
-          <strong>س12:</strong> ما حكم الاستماع إلى الأغاني النظيفة ذات الكلمات الطيبة والموسيقى؟
-        </a>
-      </article>
-      <article class="question-item">
-        <a href="answers_ar/Can_i_accept_free_hajj_ar.html">
-          <strong>س13:</strong> حكم الحج الممول من متبرع؟
-        </a>
-      </article>
+      <!-- All question-items listed here -->
+      <div id="fatwaList">
+        <article class="question-item"><a href="answers_ar/is_zina_halal_ar.html"><strong>س1:</strong> هل الزنا حلال؟</a></article>
+        <article class="question-item"><a href="answers_ar/Ruling_on_receiving_gift_from_banks_ar.html"><strong>س2:</strong> استلام هدية عند فتح حساب بنكي من البنوك؟</a></article>
+        <article class="question-item"><a href="answers_ar/Singing_without_musical_instruments_ar.html"><strong>س3:</strong> الغناء بدون أدوات موسيقية؟</a></article>
+        <article class="question-item"><a href="answers_ar/Spaying_cat_ar.html"><strong>س4:</strong> هل يجوز لي تعقيم قطتي؟</a></article>
+        <article class="question-item"><a href="answers_ar/working_in_tax_collection_ar.html"><strong>س5:</strong> العمل في هيئات جمع الضرائب؟</a></article>
+        <article class="question-item"><a href="answers_ar/ruling_on_going_against_government_ar.html"><strong>س6:</strong> ما هو حكم الخروج على الحاكم؟</a></article>
+        <article class="question-item"><a href="answers_ar/money_refunded_ar.html"><strong>س7:</strong> حكم الاحتفاظ بالمال المسترد من البنك؟</a></article>
+        <article class="question-item"><a href="answers_ar/advise_family_ar.html"><strong>س8:</strong> كيف تنصح العائلة عند ارتكاب المعاصي؟</a></article>
+        <article class="question-item"><a href="answers_ar/combine_prayers_ar.html"><strong>س9:</strong> حكم جمع صلاتين بدون عذر؟</a></article>
+        <article class="question-item"><a href="answers_ar/dental_veeners_ar.html"><strong>س10:</strong> هل قشور الأسنان (الفينير) مباحة في الشريعة الإسلامية؟</a></article>
+        <article class="question-item"><a href="answers_ar/cursing_sahaba_ar.html"><strong>س11:</strong> حكم من يسب الصحابة رضي الله عنهم؟</a></article>
+        <article class="question-item"><a href="answers_ar/Listening_to_clean_songs_ar.html"><strong>س12:</strong> ما حكم الاستماع إلى الأغاني النظيفة ذات الكلمات الطيبة والموسيقى؟</a></article>
+        <article class="question-item"><a href="answers_ar/Can_i_accept_free_hajj_ar.html"><strong>س13:</strong> حكم الحج الممول من متبرع؟</a></article>
+      </div>
 
       <!-- Pagination block -->
-      <div class="pagination" aria-label="تصفح الصفحات"></div>
+      <div class="pagination" style="display: flex; justify-content: center; margin-top: 2rem; gap: 0.5rem;"></div>
     </section>
   </main>
 
+<!-- Modal For Submitting Questions -->
   <div id="questionModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
     <div class="modal-content">
       <span class="close" id="closeModalBtn" role="button" aria-label="إغلاق">&times;</span>
@@ -361,74 +290,78 @@
       })
       .catch(() => alert("هناك مشكلة في الإرسال."));
     });
+  </script>
 
-    // Arabic Fatwa search logic
-    document.getElementById('fatwaSearch').addEventListener('input', function () {
-      const query = this.value.toLowerCase();
-      const fatwas = document.querySelectorAll('.question-item');
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const fatwaList = document.getElementById('fatwaList');
+      const paginationContainer = document.querySelector('.pagination');
+      const fatwas = Array.from(fatwaList.querySelectorAll('.question-item'));
+      const itemsPerPage = 5; // Adjust items per page here
+      let currentPage = 1;
+      let filteredFatwas = fatwas;
 
-      fatwas.forEach(item => {
-        const text = item.textContent.toLowerCase();
-        item.style.display = text.includes(query) ? 'block' : 'none';
-      });
+      function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
 
-      // Reset to first page after search
-      showPage(1);
-      updatePagination();
-    });
+        // Hide all first
+        fatwas.forEach(item => item.style.display = 'none');
+        // Show filtered items for this page
+        filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
 
-    // Pagination logic
-    const fatwas = Array.from(document.querySelectorAll('.question-item'));
-    const paginationContainer = document.querySelector('.pagination');
-    const itemsPerPage = 10;
-
-    function showPage(page) {
-      const filteredFatwas = fatwas.filter(fatwa => fatwa.style.display !== 'none');
-      const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
-      if(page < 1) page = 1;
-      if(page > totalPages) page = totalPages;
-
-      filteredFatwas.forEach((item, index) => {
-        item.style.display = (index >= (page - 1) * itemsPerPage && index < page * itemsPerPage) ? 'block' : 'none';
-      });
-
-      // Highlight active page
-      const pageLinks = paginationContainer.querySelectorAll('a');
-      pageLinks.forEach(link => {
-        link.classList.remove('active');
-      });
-      const activeLink = paginationContainer.querySelector(`a[data-page="${page}"]`);
-      if (activeLink) {
-        activeLink.classList.add('active');
-      }
-    }
-
-    function updatePagination() {
-      const filteredFatwas = fatwas.filter(fatwa => fatwa.style.display !== 'none');
-      const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
-
-      paginationContainer.innerHTML = '';
-      for(let i = 1; i <= totalPages; i++) {
-        const a = document.createElement('a');
-        a.href = "#";
-        a.textContent = i;
-        a.setAttribute('data-page', i);
-        a.addEventListener('click', function(e) {
-          e.preventDefault();
-          showPage(i);
-        });
-        paginationContainer.appendChild(a);
+        renderPagination();
       }
 
-      // Show first page by default or after update
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+        if (totalPages <= 1) return; // no need to paginate if 1 or 0 pages
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement('a');
+          pageLink.href = "#";
+          pageLink.textContent = i;
+          pageLink.style.padding = '0.5rem 1rem';
+          pageLink.style.backgroundColor = i === currentPage ? '#ccc' : '#eee';
+          pageLink.style.borderRadius = '6px';
+          pageLink.style.textDecoration = 'none';
+          pageLink.style.margin = '0 0.25rem';
+          pageLink.style.fontWeight = i === currentPage ? 'bold' : 'normal';
+
+          pageLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+            // Scroll to top of list on page change
+            fatwaList.scrollIntoView({ behavior: 'smooth' });
+          });
+
+          paginationContainer.appendChild(pageLink);
+        }
+      }
+
+      function filterFatwas(query) {
+        query = query.trim().toLowerCase();
+        if (!query) {
+          filteredFatwas = fatwas;
+        } else {
+          filteredFatwas = fatwas.filter(item => {
+            return item.textContent.toLowerCase().includes(query);
+          });
+        }
+        showPage(1); // Reset to page 1 after filtering
+      }
+
+      // Initial display
       showPage(1);
-    }
 
-    // Initialize pagination on DOM load
-    document.addEventListener("DOMContentLoaded", function() {
-      updatePagination();
+      // Connect search input
+      const searchInput = document.getElementById('fatwaSearch');
+      searchInput.addEventListener('input', function () {
+        filterFatwas(this.value);
+      });
     });
-
   </script>
 
   <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
