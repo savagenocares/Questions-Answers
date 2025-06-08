@@ -62,6 +62,24 @@
     h2, h3 {
       color: var(--primary-color);
     }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+
+    .header-text {
+      text-align: right;
+      flex: 1;
+    }
+
+    .header-logo {
+      width: 200px;
+      height: auto;
+    }
 
     a.btn {
       display: inline-block;
@@ -169,12 +187,14 @@
   </header>
 
   <div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0; flex-direction: row-reverse;">
-    <a href="https://www.paypal.me/asksunnah" class="btn" aria-label="تبرع لدعم الموقع">
-      ❤️ ساهم في دعم هذا العمل
-    </a>
     <a href="/library/Welcome_to_library_ar/Welcome_to_library_ar.html" class="btn" aria-label="زيارة المكتبة">
       📚 المكتبة
     </a>
+    <a href="https://www.paypal.me/asksunnah" class="btn" aria-label="تبرع لدعم الموقع">
+      ❤️ ساهم في دعم هذا العمل
+    </a>
+    <a href="https://forms.gle/e5jGuDBJhZAyCP448" class="btn" aria-label="ساهم باقتراحك" target="_blank" rel="noopener">💬 ساهم باقتراحك</a>
+
   </div>
 
   <main aria-label="الصفحة الرئيسية">
@@ -199,9 +219,11 @@
     </div>
 
     <section aria-labelledby="recent-answers">
-     <h3 id="recent-answers">
-  📝 الإجابات الجديدة: <span id="answerCount">0</span>
-</h3>
+
+        <div>
+          <h3 id="recent-answers" style="margin: 0;">الاجابات الجديدة</h3>
+          <span id="answerCount" style="font-size: 0.95rem; color: #2c3e50; display: block; margin-top: 0.5rem"></span>
+        </div>
 
 
       <!-- All question-items listed here -->
