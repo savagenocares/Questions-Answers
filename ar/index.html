@@ -219,10 +219,12 @@
     </div>
 
     <section aria-labelledby="recent-answers">
+
         <div>
           <h3 id="recent-answers" style="margin: 0;">الاجابات الجديدة</h3>
           <span id="answerCount" style="font-size: 0.95rem; color: #2c3e50; display: block; margin-top: 0.5rem"></span>
         </div>
+
 
       <!-- All question-items listed here -->
       <div id="fatwaList">
@@ -332,12 +334,16 @@
         const end = start + itemsPerPage;
 
         // Hide all first
-        fatwas.forEach(item => item.style.display = 'none');
-        // Show filtered items for this page
-        filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
+  fatwas.forEach(item => item.style.display = 'none');
+  // Show filtered items for this page
+  filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
 
-        renderPagination();
-      }
+  // NEW LINE to update the number!
+  document.getElementById('answerCount').textContent = filteredFatwas.length;
+
+  renderPagination();
+}
+
 
       function renderPagination() {
         paginationContainer.innerHTML = '';
@@ -411,14 +417,11 @@
 
       // Initial display
       showPage(1);
-      document.getElementById('answerCount').textContent = `إجمالي الفتاوى: ${fatwas.length}`;
-
 
       // Connect search input
       const searchInput = document.getElementById('fatwaSearch');
       searchInput.addEventListener('input', function () {
         filterFatwas(this.value);
-        document.getElementById('answerCount').textContent = `إجمالي الفتاوى: ${filteredFatwas.length}`;
       });
     });
   </script>
