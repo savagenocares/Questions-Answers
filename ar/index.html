@@ -297,7 +297,81 @@
     });
   </script>
 
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const fatwaList = document.getElementById('fatwaList');
+      const paginationContainer = document.querySelector('.pagination');
+      const fatwas = Array.from(fatwaList.querySelectorAll('.question-item'));
+      const itemsPerPage = 5; // Adjust items per page here
+      let currentPage = 1;
+      let filteredFatwas = fatwas;
 
+      function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        // Hide all first
+        fatwas.forEach(item => item.style.display = 'none');
+        // Show filtered items for this page
+        filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
+
+        renderPagination();
+      }
+
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+        if (totalPages <= 1) return; // no need to paginate if 1 or 0 pages
+
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement('a');
+          pageLink.href = "#";
+          pageLink.textContent = i;
+          pageLink.style.padding = '0.5rem 1rem';
+          pageLink.style.backgroundColor = i === currentPage ? '#ccc' : '#eee';
+          pageLink.style.borderRadius = '6px';
+          pageLink.style.textDecoration = 'none';
+          pageLink.style.margin = '0 0.25rem';
+          pageLink.style.fontWeight = i === currentPage ? 'bold' : 'normal';
+
+          pageLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+            // Scroll to top of list on page change
+            fatwaList.scrollIntoView({ behavior: 'smooth' });
+          });
+
+          paginationContainer.appendChild(pageLink);
+        }
+      }
+
+      function filterFatwas(query) {
+        query = query.trim().toLowerCase();
+        if (!query) {
+          filteredFatwas = fatwas;
+        } else {
+          filteredFatwas = fatwas.filter(item => {
+            return item.textContent.toLowerCase().includes(query);
+          });
+        }
+        showPage(1); // Reset to page 1 after filtering
+      }
+
+      // Initial display
+      showPage(1);
+      document.getElementById('answerCount').textContent = `إجمالي الفتاوى: ${fatwas.length}`;
+
+
+      // Connect search input
+      const searchInput = document.getElementById('fatwaSearch');
+      searchInput.addEventListener('input', function () {
+        filterFatwas(this.value);
+        document.getElementById('answerCount').textContent = `إجمالي الفتاوى: ${filteredFatwas.length}`;
+      });
+    });
+  </script>
+  
   <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
     <br>انشر هذا الموقع مع الآخرين لينتشر النفع ولك أجر مستمر
     <em>إن شاء الله</em>
