@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="AskSunnah.com provides Islamic answers from Dr. Sheikh Falah Kurkully based on Qur’an and Sunnah — clear, concise, and authentic.">
-  <title>AskSunnah - Get Answers from Dr. Sheikh Falah Kurkully</title>
+  <title>AskSunnah.com - Get Answers from Dr. Sheikh Falah Kurkully</title>
   <style>
     :root {
       --primary-color: #1f6f3e;
@@ -85,7 +85,6 @@
       border-radius: 5px;
     }
 
-    /* Modal Styles */
     .modal {
       display: none;
       position: fixed;
@@ -161,8 +160,6 @@
     }
   </style>
 
-
-<!-- Google Analytics (GA4) - Cookie-less Setup -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-4S7C7010H4"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -176,134 +173,60 @@
   });
 </script>
 
-
-<!-- Favicon -->
 <link rel="icon" type="image/x-icon" href="example.ico">
-
-
 </head>
 <body>
 
   <header>
-    <h1>AskSunnah</h1>
+    <h1>AskSunnah.com</h1>
     <p>Get authentic answers from Dr. Sheikh Falah Kurkully — grounded in Qur’an and Sunnah (Beta-Version)</p>
   </header>
 
   <div style="display: flex; justify-content: center; gap: 1rem; margin: 1rem 0;">
-    <a href="https://www.paypal.me/asksunnah" class="btn" aria-label="Donate to support the deen">
-      ❤️ Help support the Deen
-    </a>
-    <a href="library/Welcome_to_library/Welcome_to_library.html" class="btn" aria-label="Visit the Library">
-      📚 Library
-    </a>
+    <a href="https://www.paypal.me/asksunnah" class="btn" aria-label="Donate to support the deen">❤️ Help support the Deen</a>
+    <a href="library/Welcome_to_library/Welcome_to_library.html" class="btn" aria-label="Visit the Library">📚 Library</a>
   </div>
-  
-  
 
   <main aria-label="Main Content Area">
     <section aria-labelledby="ask-question">
       <h2 id="ask-question">Ask a Question</h2>
       <p>Have a question about Islam? Submit it and get a response directly from Dr. Sheikh Falah Kurkully, based on one clear opinion from trusted scholars.</p>
       <a href="#" class="btn" id="openModalBtn" aria-label="Submit your question">Submit Your Question</a>
-      <a href="/ar/" style="margin-left: 1rem; text-decoration: underline; color: inherit;">
-        العربية
-      </a>
-      
-      
-
+      <a href="/ar/" style="margin-left: 1rem; text-decoration: underline; color: inherit;">العربية</a>
     </section>
+
+    <!-- Search Bar -->
+    <div style="margin: 2rem 0;">
+      <input type="text" id="fatwaSearch" placeholder="Search fatwas..." 
+        style="width: 100%; padding: 0.75rem; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem;">
+    </div>
 
     <section aria-labelledby="recent-answers">
       <h3 id="recent-answers">Recent Answers</h3>
-    
-      <article class="question-item">
-        <a href="answers/is_zinah_halal.html">
-          <strong>Q1:</strong> Is Zinah (fornication) Halal? 
-        </a>
-      </article>
 
-      <article class="question-item">
-        <a href="answers/Ruling_on_receiving_gift_from_banks.html">
-          <strong>Q2:</strong> Receiving an opening bank account gift from banks?  
-        </a>
-      </article>
+      <!-- All question-items listed here -->
+      <div id="fatwaList">
+        <article class="question-item"><a href="answers/is_zinah_halal.html"><strong>Q1:</strong> Is Zinah (fornication) Halal?</a></article>
+        <article class="question-item"><a href="answers/Ruling_on_receiving_gift_from_banks.html"><strong>Q2:</strong> Receiving an opening bank account gift from banks?</a></article>
+        <article class="question-item"><a href="answers/Singing_without_musical_instruments.html"><strong>Q3:</strong> Singing without musical instruments?</a></article>
+        <article class="question-item"><a href="answers/Spaying_cat.html"><strong>Q4:</strong> Can I spay/neuter my cat?</a></article>
+        <article class="question-item"><a href="answers/working_in_tax_collection.html"><strong>Q5:</strong> Working in tax collection authorities?</a></article>
+        <article class="question-item"><a href="answers/ruling_on_going_against_government.html"><strong>Q6:</strong> Ruling on going against government?</a></article>
+        <article class="question-item"><a href="answers/money_refunded.html"><strong>Q7:</strong> Ruling on keeping refunded money from the bank?</a></article>
+        <article class="question-item"><a href="answers/advise_family.html"><strong>Q8:</strong> How to advise family on sinning?</a></article>
+        <article class="question-item"><a href="answers/combine_prayers.html"><strong>Q9:</strong> Ruling on combining prayers without a reason?</a></article>
+        <article class="question-item"><a href="answers/dental_veeners.html"><strong>Q10:</strong> Are dental veneers permissible in islam?</a></article>
+        <article class="question-item"><a href="answers/cursing_sahaba.html"><strong>Q11:</strong> Ruling on the one who curses Sahaba?</a></article>
+        <article class="question-item"><a href="answers/Listening_to_clean_songs.html"><strong>Q12:</strong> Ruling on Listening to clean songs that include music?</a></article>
+        <article class="question-item"><a href="answers/Can_i_accept_free_hajj.html"><strong>Q13:</strong> Can I accept free hajj?</a></article>
+        <article class="question-item"><a href="answers/the_secret_habit.html"><strong>Q14:</strong> Is masturbation haram?</a></article>
+        <!-- Add more question-items here if needed -->
+      </div>
 
-      <article class="question-item">
-        <a href="answers/Singing_without_musical_instruments.html">
-          <strong>Q3:</strong> Singing without musical instruments?   
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/Spaying_cat.html">
-          <strong>Q4:</strong> Can I spay/neuter my cat?   
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/working_in_tax_collection.html">
-          <strong>Q5:</strong> Working in tax collection authorities?   
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/ruling_on_going_against_government.html">
-          <strong>Q6:</strong> Ruling on going against government?    
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/money_refunded.html">
-          <strong>Q7:</strong> Ruling on keeping refunded money from the bank?    
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/advise_family.html">
-          <strong>Q8:</strong> How to advise family on sinning?    
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/combine_prayers.html">
-          <strong>Q9:</strong> Ruling on combining prayers without a reason?    
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/dental_veeners.html">
-          <strong>Q10:</strong> Are dental veneers permissible in islam?    
-        </a>
-      </article>
-
- <article class="question-item">
-        <a href="answers/cursing_sahaba.html">
-          <strong>Q11:</strong> Ruling on the one who curses Sahaba?    
-        </a>
-      </article>
-
-      <article class="question-item">
-        <a href="answers/Listening_to_clean_songs.html">
-          <strong>Q12:</strong> Ruling on listening to clean songs that include music?    
-        </a>
-      </article>
-
-<article class="question-item">
-        <a href="answers/Can_i_accept_free_hajj.html">
-          <strong>Q13:</strong> Can I accept free hajj? 
-        </a>
-      </article>
-
-
-      
-  
-    
-      <!-- You can add more links below the same way -->
+      <div class="pagination" style="display: flex; justify-content: center; margin-top: 2rem; gap: 0.5rem;"></div>
     </section>
-    
   </main>
 
-  <!-- Modal Structure -->
   <div id="questionModal" class="modal">
     <div class="modal-content">
       <span class="close" id="closeModalBtn">&times;</span>
@@ -314,81 +237,130 @@
         <textarea name="question" rows="5" placeholder="Your Question" required></textarea>
         <button type="submit">Send Question</button>
       </form>
-      
-      <!-- Thank you message -->
-      <div id="thankYouMessage" style="display:none; margin-top: 1rem; color: green;">
-        ✅ Your question has been submitted. JazakAllah Khair!
-      </div>
-      
-
-      
-
+      <div id="thankYouMessage" style="display:none; margin-top: 1rem; color: green;">✅ Your question has been submitted. JazakAllah Khair!</div>
+    </div>
   </div>
 
   <script>
-    
-  const modal = document.getElementById("questionModal");
-  const openBtn = document.getElementById("openModalBtn");
-  const closeBtn = document.getElementById("closeModalBtn");
-  const form = document.getElementById("questionForm");
-  const thankYou = document.getElementById("thankYouMessage");
+    const modal = document.getElementById("questionModal");
+    const openBtn = document.getElementById("openModalBtn");
+    const closeBtn = document.getElementById("closeModalBtn");
+    const form = document.getElementById("questionForm");
+    const thankYou = document.getElementById("thankYouMessage");
 
-  openBtn.addEventListener("click", function(e) {
-    e.preventDefault();
-    modal.style.display = "block";
-  });
+    openBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      modal.style.display = "block";
+    });
 
-  closeBtn.addEventListener("click", function() {
-    modal.style.display = "none";
-    form.reset();
-    thankYou.style.display = "none";
-  });
-
-  window.addEventListener("click", function(e) {
-    if (e.target === modal) {
+    closeBtn.addEventListener("click", function() {
       modal.style.display = "none";
       form.reset();
       thankYou.style.display = "none";
-    }
-  });
+    });
 
-  form.addEventListener("submit", function(e) {
-    e.preventDefault();
-    const formData = new FormData(form);
-    fetch(form.action, {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json"
+    window.addEventListener("click", function(e) {
+      if (e.target === modal) {
+        modal.style.display = "none";
+        form.reset();
+        thankYou.style.display = "none";
       }
-    })
-    .then(response => {
-      if (response.ok) {
-        form.style.display = "none";
-        thankYou.style.display = "block";
-      } else {
-        alert("Something went wrong. Please try again.");
+    });
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" }
+      })
+      .then(response => {
+        if (response.ok) {
+          form.style.display = "none";
+          thankYou.style.display = "block";
+        } else {
+          alert("Something went wrong. Please try again.");
+        }
+      })
+      .catch(() => alert("There was a problem submitting your question."));
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const fatwaList = document.getElementById('fatwaList');
+      const paginationContainer = document.querySelector('.pagination');
+      const fatwas = Array.from(fatwaList.querySelectorAll('.question-item'));
+      const itemsPerPage = 5; // Adjust items per page here
+      let currentPage = 1;
+      let filteredFatwas = fatwas;
+
+      function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * itemsPerPage;
+        const end = start + itemsPerPage;
+
+        // Hide all first
+        fatwas.forEach(item => item.style.display = 'none');
+        // Show filtered items for this page
+        filteredFatwas.slice(start, end).forEach(item => item.style.display = 'block');
+
+        renderPagination();
       }
-    })
-    .catch(() => alert("There was a problem submitting your question."));
-  });
-  document.getElementById("openArabicModalBtn").addEventListener("click", function(e) {
-  e.preventDefault();
-  window.location.href = "/ar";
-});
 
-  
-</script>
+      function renderPagination() {
+        paginationContainer.innerHTML = '';
+        const totalPages = Math.ceil(filteredFatwas.length / itemsPerPage);
+        if (totalPages <= 1) return; // no need to paginate if 1 or 0 pages
 
+        for (let i = 1; i <= totalPages; i++) {
+          const pageLink = document.createElement('a');
+          pageLink.href = "#";
+          pageLink.textContent = i;
+          pageLink.style.padding = '0.5rem 1rem';
+          pageLink.style.backgroundColor = i === currentPage ? '#ccc' : '#eee';
+          pageLink.style.borderRadius = '6px';
+          pageLink.style.textDecoration = 'none';
+          pageLink.style.margin = '0 0.25rem';
+          pageLink.style.fontWeight = i === currentPage ? 'bold' : 'normal';
 
+          pageLink.addEventListener('click', function (e) {
+            e.preventDefault();
+            showPage(i);
+            // Scroll to top of list on page change
+            fatwaList.scrollIntoView({ behavior: 'smooth' });
+          });
 
-<footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
-  Share this website with others so the benefit may spread — and you may earn ongoing reward,<em> In sha Allah <br><br>انشر هذا الموقع مع الآخرين لينتشر النفع — ولك أجر مستمر
-    <em>إن شاء الله</em></em>
-</footer>
+          paginationContainer.appendChild(pageLink);
+        }
+      }
 
+      function filterFatwas(query) {
+        query = query.trim().toLowerCase();
+        if (!query) {
+          filteredFatwas = fatwas;
+        } else {
+          filteredFatwas = fatwas.filter(item => {
+            return item.textContent.toLowerCase().includes(query);
+          });
+        }
+        showPage(1); // Reset to page 1 after filtering
+      }
 
-  
+      // Initial display
+      showPage(1);
+
+      // Connect search input
+      const searchInput = document.getElementById('fatwaSearch');
+      searchInput.addEventListener('input', function () {
+        filterFatwas(this.value);
+      });
+    });
+  </script>
+
+  <footer style="background-color: var(--accent-bg); text-align: center; padding: 1rem; margin-top: 2rem; font-size: 0.95rem; color: var(--text-color);">
+    Share this website with others so the benefit may spread — and you may earn ongoing reward,<em> In sha Allah <br></em>
+  </footer>
 </body>
-
 </html>
