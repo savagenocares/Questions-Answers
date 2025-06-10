@@ -27,6 +27,7 @@
       background-color: var(--background);
       color: var(--text-color);
       line-height: 1.6;
+      direction: rtl;
     }
 
     header {
@@ -61,6 +62,24 @@
     h2, h3 {
       color: var(--primary-color);
     }
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      flex-direction: row-reverse;
+      gap: 1rem;
+      padding: 0 1rem;
+    }
+
+    .header-text {
+      text-align: right;
+      flex: 1;
+    }
+
+    .header-logo {
+      width: 200px;
+      height: auto;
+    }
 
     a.btn {
       display: inline-block;
@@ -80,7 +99,7 @@
     .question-item {
       margin-top: 1.5rem;
       padding: 1rem;
-      border-left: 5px solid var(--primary-color);
+      border-right: 5px solid var(--primary-color);
       background-color: var(--accent-bg);
       border-radius: 5px;
     }
@@ -138,7 +157,7 @@
 
     .close {
       color: #aaa;
-      float: right;
+      float: left;
       font-size: 1.5rem;
       font-weight: bold;
       cursor: pointer;
@@ -157,7 +176,6 @@
       .question-item {
         font-size: 0.95rem;
       }
-
       header {
         padding: 2rem 1rem;
       }
@@ -206,7 +224,6 @@
       footer a {
         font-size: 0.85rem;
       }
-
     }
   </style>
 </head>
