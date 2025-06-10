@@ -27,7 +27,6 @@
       background-color: var(--background);
       color: var(--text-color);
       line-height: 1.6;
-      direction: rtl;
     }
 
     header {
@@ -62,24 +61,6 @@
     h2, h3 {
       color: var(--primary-color);
     }
-    
-    .header-content {
-      display: flex;
-      align-items: center;
-      flex-direction: row-reverse;
-      gap: 1rem;
-      padding: 0 1rem;
-    }
-
-    .header-text {
-      text-align: right;
-      flex: 1;
-    }
-
-    .header-logo {
-      width: 200px;
-      height: auto;
-    }
 
     a.btn {
       display: inline-block;
@@ -99,7 +80,7 @@
     .question-item {
       margin-top: 1.5rem;
       padding: 1rem;
-      border-right: 5px solid var(--primary-color);
+      border-left: 5px solid var(--primary-color);
       background-color: var(--accent-bg);
       border-radius: 5px;
     }
@@ -157,7 +138,7 @@
 
     .close {
       color: #aaa;
-      float: left;
+      float: right;
       font-size: 1.5rem;
       font-weight: bold;
       cursor: pointer;
@@ -176,6 +157,56 @@
       .question-item {
         font-size: 0.95rem;
       }
+
+      header {
+        padding: 2rem 1rem;
+      }
+
+      header h1 {
+        font-size: 1.8rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 1rem;
+        margin: 1rem;
+      }
+
+      .question-item {
+        font-size: 0.95rem;
+        padding: 0.75rem;
+      }
+
+      a.btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+      }
+
+      .modal-content {
+        margin-top: 20%;
+        padding: 1.5rem;
+      }
+
+      input#fatwaSearch {
+        font-size: 0.95rem;
+      }
+
+      .pagination a {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.6rem;
+      }
+
+      footer h4 {
+        font-size: 1.1rem;
+      }
+
+      footer a {
+        font-size: 0.85rem;
+      }
+
     }
   </style>
 </head>
